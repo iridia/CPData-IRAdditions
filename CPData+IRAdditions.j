@@ -29,9 +29,15 @@
 	
 }
 
-- (NSString) dataURIWithMIMEType:(NSString)inMIMEType {
+- (NSString) base64EncodedDataURIWithMIMEType:(NSString)inMIMEType {
 	
 	return [CPString stringWithFormat:@"data:%@;charset=utf-8;base64,%@", inMIMEType, [self base64String]];
+	
+}
+
+- (NSString) uriComponentEncodedDataURIWithMIMEType:(NSString)inMIMEType {
+	
+	return [CPString stringWithFormat:@"data:%@;charset=utf-8,%@", inMIMEType, encodeURIComponent([self rawString])];
 	
 }
 
